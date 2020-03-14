@@ -1,18 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <EditText
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:hint="Nhap tai khoan"
+        android:id="@+id/edittextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:inputType="textPassword"
+        android:layout_below="@id/edittextEmail"
+        android:hint="Nhap mat khau"
+        android:id="@+id/edittextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@id/edittextPassword"
+        android:text="Dang ky"
+        android:id="@+id/buttonDangky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_toRightOf="@id/buttonDangky"
+        android:layout_below="@id/edittextPassword"
+        android:text="Dang nhap"
+        android:id="@+id/buttonDangnhap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_toRightOf="@id/buttonDangnhap"
+        android:layout_below="@id/edittextPassword"
+        android:text="Thong tin user hien tai"
+        android:id="@+id/buttonThongtin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_below="@id/buttonDangnhap"
+        android:text="Cap nhat thong tin"
+        android:id="@+id/buttonCapnhat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_toRightOf="@id/buttonCapnhat"
+        android:layout_below="@id/buttonThongtin"
+        android:text="Cap nhat mat khau"
+        android:id="@+id/buttonResetpassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/buttonResetpassword"
+        android:text="Xac thuc email"
+        android:id="@+id/buttonVerification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:hint="Nhap phone xac thuc"
+        android:layout_below="@id/buttonVerification"
+        android:id="@+id/edittextVerificationPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edittextVerificationPhone"
+        android:text="Xac thuc phone"
+        android:id="@+id/buttonVerificationPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_below="@id/buttonVerificationPhone"
+        android:hint="Nhap ma xac thuc cua dien thoai"
+        android:id="@+id/edittextPhoneVerification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/edittextPhoneVerification"
+        android:text="Dang nhap qua xac thuc"
+        android:id="@+id/buttonLoginPhoneVerification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
