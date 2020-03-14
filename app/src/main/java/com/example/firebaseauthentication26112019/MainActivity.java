@@ -98,9 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     String uid = user.getUid();
                     Toast.makeText(
                             MainActivity.this
-                            ,  "Email :" + email + "\n"+
-                            "Name :" + name  + "\n" +
-                            "Email verified:" + emailVerified
+                            , "Email :" + email + "\n" +
+                                    "Name :" + name + "\n" +
+                                    "Email verified:" + emailVerified
                             , Toast.LENGTH_SHORT).show();
                 }
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-                if (user != null){
+                if (user != null) {
                     UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                             .setDisplayName("Lop Android 26112019")
                             .build();
@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
                                         Toast.makeText(MainActivity.this, "Cap nhat thong thanh cong", Toast.LENGTH_SHORT).show();
-                                    }else{
+                                    } else {
                                         Toast.makeText(MainActivity.this, "Loi cap nhat", Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -129,7 +129,48 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btnCapnhatmatkhau.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    String newPassword = "123456789";
+                    user.updatePassword(newPassword)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(MainActivity.this, "Cap nhat mat khau thanh cong", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+            }
+        });
+        btnXacthucEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseUser user = mAuth.getCurrentUser();
+
+                if (user != null){
+                    user.sendEmailVerification()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(MainActivity.this, "Gui xac thuc thanh cong", Toast.LENGTH_SHORT).show();
+                                    }else{
+                                        Toast.makeText(MainActivity.this, "Gui xac thuc that bai", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+            }
+        });
     }
+
     @Override
     public void onStart() {
         super.onStart();
